@@ -11,10 +11,10 @@ const CFG = {
 
 // Masukkan file gambar di folder "assets/"
 const ASSET = {
-  photo: 'assets/jece.jpeg',       // Foto di dalam Medali Music Box & Notes
-  gift:  'assets/hadiah.jpeg',      // Foto Hadiah
-  notes: 'assets/notes.jpeg',      // Ikon tombol Notes
-  cake:  'assets/kue.jpeg'         // Ikon tombol Kue
+  photo: 'jece.jpeg',       // Foto di dalam Medali Music Box & Notes
+  gift:  'hadiah.jpeg',      // Foto Hadiah
+  notes: 'notes.jpeg',      // Ikon tombol Notes
+  cake:  'kue.jpeg'         // Ikon tombol Kue
 };
 
 // ==========================================

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+<title>Music Box Ulang Tahun</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600;700&family=Sacramento&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="scene" id="stage">
+  <h1>Happy Birthday<br><span id="tNama"></span></h1>
+  
+  <svg class="mb" id="mb" viewBox="0 0 360 430" aria-label="Music box">
+    <defs>
+      <linearGradient id="ivy" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffaf0"/><stop offset="1" stop-color="#e6d6bb"/></linearGradient>
+      <linearGradient id="gld" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8e6a8"/><stop offset=".5" stop-color="#b8892f"/><stop offset="1" stop-color="#f8e6a8"/></linearGradient>
+      <radialGradient id="pnk" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#ffece8"/><stop offset="1" stop-color="#f3b4b0"/></radialGradient>
+      <clipPath id="cm"><ellipse cx="180" cy="122" rx="58" ry="68"/></clipPath>
+    </defs>
+    <ellipse cx="180" cy="128" rx="160" ry="124" fill="url(#ivy)" stroke="url(#gld)" stroke-width="7"/>
+    <ellipse cx="180" cy="130" rx="142" ry="106" fill="url(#pnk)"/>
+    <path d="M160 10c4-12 36-12 40 0l-8 12h-24z" fill="url(#gld)"/><circle cx="180" cy="4" r="5" fill="url(#gld)"/>
+    <g id="medal">
+      <ellipse cx="180" cy="122" rx="64" ry="74" fill="none" stroke="url(#gld)" stroke-width="6"/>
+      <g clip-path="url(#cm)"><rect x="110" y="40" width="140" height="160" fill="#f7d5d2"/>
+        <g id="sil"><circle cx="180" cy="110" r="22" fill="#e79aa8"/><path d="M130 190c4-40 26-58 50-58s46 18 50 58z" fill="#e48b9d"/></g>
+        <image id="mimg" x="116" y="48" width="128" height="148" preserveAspectRatio="xMidYMid slice" display="none"/></g></g>
+    <path d="M22 300C22 362 40 394 92 398H268C320 394 338 362 338 300Z" fill="url(#ivy)" stroke="url(#gld)" stroke-width="4"/>
+    <ellipse cx="180" cy="300" rx="158" ry="44" fill="url(#ivy)" stroke="url(#gld)" stroke-width="6"/>
+    <ellipse cx="180" cy="300" rx="144" ry="35" fill="url(#pnk)"/>
+    <ellipse cx="180" cy="306" rx="126" ry="24" fill="#f0a3a2" opacity=".45"/>
+    <ellipse cx="180" cy="310" rx="50" ry="14" fill="#8a6420"/><rect x="130" y="292" width="100" height="18" fill="url(#gld)"/>
+    <ellipse cx="180" cy="292" rx="50" ry="13" fill="url(#gld)"/><ellipse cx="180" cy="290" rx="40" ry="10" fill="#f9c9c4"/>
+    <g class="ball">
+      <rect x="175" y="262" width="4" height="28" rx="2" fill="#f7d9cf"/><rect x="181" y="262" width="4" height="28" rx="2" fill="#f7d9cf"/>
+      <path d="M171 222c0-8 18-8 18 0l1 26h-20z" fill="#f4a9bf"/>
+      <path d="M173 224q-20 2-32 14M187 224q20 2 32 14" stroke="#f7d9cf" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <ellipse cx="180" cy="252" rx="42" ry="11" fill="#f9c8d6"/><ellipse cx="180" cy="247" rx="33" ry="8" fill="#ffd9e4"/>
+      <rect x="177" y="208" width="6" height="8" fill="#f7d9cf"/><circle cx="180" cy="202" r="9" fill="#f7d9cf"/><circle cx="180" cy="192" r="6" fill="#8a5a3a"/><path d="M171 200c2-9 16-9 18 0-5-4-13-4-18 0z" fill="#8a5a3a"/>
+    </g>
+    <g fill="none" stroke="url(#gld)" stroke-width="2.5" stroke-linecap="round"><path d="M70 356c20-12 40-12 58 6M290 356c-20-12-40-12-58 6M150 376c18 12 42 12 60 0"/></g>
+    <g fill="#f08aa4"><circle cx="128" cy="362" r="5"/><circle cx="232" cy="362" r="5"/><circle cx="180" cy="382" r="5"/></g>
+    <circle cx="180" cy="350" r="12" fill="url(#gld)"/><circle cx="180" cy="350" r="6" fill="#d9546f"/>
+    <path d="M62 392c-10 6-14 18-8 24l16-10zM298 392c10 6 14 18 8 24l-16-10z" fill="url(#gld)"/>
+  </svg>
+
+  <div class="bar"><i id="prog"></i></div>
+  <div class="ctl">
+    <button class="btn" id="start">Putar Music Box</button>
+    <button class="btn ghost" id="mute" hidden>Bisukan</button>
+    <button class="btn ghost" id="again" hidden>Putar Lagi</button>
+  </div>
+  <div class="items" id="items">
+    <button class="item" data-v="vNote"><span class="ico" data-k="notes"><svg viewBox="0 0 60 60"><rect x="10" y="8" width="40" height="46" rx="3" fill="#ffe9f2" transform="rotate(-6 30 30)"/><path d="M17 22h26M17 30h26M17 38h16" stroke="#ff4f9a" stroke-width="3" stroke-linecap="round" transform="rotate(-6 30 30)"/></svg></span><span>Notes</span></button>
+    <button class="item" data-v="vCake"><span class="ico" data-k="cake"><svg viewBox="0 0 60 60"><rect x="8" y="30" width="44" height="22" rx="6" fill="#ff7db8"/><rect x="16" y="18" width="28" height="14" rx="5" fill="#ffb3d5"/><rect x="29" y="8" width="3" height="10" fill="#fff"/><circle cx="30.5" cy="6" r="3" fill="#ffc83d"/><circle cx="22" cy="30" r="3" fill="#e5173f"/><circle cx="38" cy="30" r="3" fill="#e5173f"/></svg></span><span>Kue</span></button>
+    <button class="item" data-v="vGift"><span class="ico" data-k="gift"><svg viewBox="0 0 60 60"><rect x="8" y="26" width="44" height="26" rx="4" fill="#ff4f9a"/><rect x="6" y="20" width="48" height="10" rx="3" fill="#ff8cc0"/><rect x="27" y="20" width="6" height="32" fill="#ffe29a"/><path d="M30 20c-12-14-18 0-4 0zM30 20c12-14 18 0 4 0z" fill="#ffe29a"/></svg></span><span>Hadiah</span></button>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="view" id="vNote">
+  <button class="btn ghost back-top" data-back>← Kembali</button>
+  <div class="inner">
+    <div class="paper">
+      <div class="pol" id="polN"></div>
+      <p id="pNama" class="font-title"></p>
+      <p id="pUcap" class="font-text"></p>
+    </div>
+  </div>
+</section>
+
+<!-- KUE -->
+<section class="view" id="vCake">
+  <button class="btn ghost back-top" data-back>← Kembali</button>
+  <div class="inner cake-wrapper">
+    <svg class="cake" viewBox="0 0 300 310" id="cake">
+      <defs>
+        <linearGradient id="pkg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc2dc"/><stop offset="1" stop-color="#ff7db8"/></linearGradient>
+        <symbol id="sb" viewBox="0 0 30 34"><path d="M15 33C4 26 1 15 3 10 6 3 24 3 27 10c2 5-1 16-12 23z" fill="#e5173f"/><path d="M6 11C9 6 21 6 24 11" stroke="#ff8aa0" stroke-width="2" fill="none" stroke-linecap="round"/><path d="M7 8l8-6 8 6-8 3z" fill="#2fa84f"/><g fill="#ffe3a0"><ellipse cx="10" cy="16" rx="1.2" ry="1.8"/><ellipse cx="20" cy="16" rx="1.2" ry="1.8"/><ellipse cx="15" cy="21" rx="1.2" ry="1.8"/><ellipse cx="11" cy="26" rx="1.2" ry="1.8"/><ellipse cx="19" cy="26" rx="1.2" ry="1.8"/></g></symbol>
+      </defs>
+      <ellipse cx="150" cy="282" rx="132" ry="16" fill="#1b0c14" stroke="#ff4f9a" stroke-width="2"/>
+      <rect x="46" y="190" width="208" height="88" rx="16" fill="url(#pkg)"/>
+      <rect x="84" y="126" width="132" height="70" rx="14" fill="url(#pkg)"/>
+      <path d="M60 196v24M92 196v16M124 196v28M156 196v14M188 196v26M220 196v18M240 196v12M100 132v16M128 132v10M160 132v18M190 132v10" stroke="#fff0f6" stroke-width="12" stroke-linecap="round"/>
+      <ellipse cx="150" cy="192" rx="104" ry="14" fill="#fff0f6"/>
+      <ellipse cx="150" cy="128" rx="66" ry="12" fill="#fff0f6"/>
+      <rect x="58" y="204" width="8" height="30" rx="4" fill="#fff" opacity=".35"/>
+      <use href="#sb" x="56" y="170" width="30" height="34"/><use href="#sb" x="104" y="176" width="30" height="34"/><use href="#sb" x="164" y="176" width="30" height="34"/><use href="#sb" x="214" y="170" width="30" height="34"/>
+      <use href="#sb" x="98" y="228" width="28" height="32"/><use href="#sb" x="174" y="228" width="28" height="32"/>
+      <use href="#sb" x="92" y="108" width="24" height="28"/><use href="#sb" x="184" y="108" width="24" height="28"/>
+      <g class="candle" transform="translate(128 0)"><rect x="-4" y="76" width="8" height="46" rx="2" fill="#fff"/><path d="M-4 86l8-4M-4 98l8-4M-4 110l8-4" stroke="#ff4f9a" stroke-width="3"/><path class="smoke" d="M0 70c-6-8 6-12 0-20"/><g class="flame"><path d="M0 74C-8 64-3 56 0 46c3 10 8 18 0 28z" fill="#ffb300"/><path d="M0 74c-4-5-2-9 0-14 2 5 4 9 0 14z" fill="#fff3a0"/></g><rect x="-14" y="42" width="28" height="80" fill="transparent"/></g>
+      <g class="candle" transform="translate(150 0)"><rect x="-4" y="70" width="8" height="52" rx="2" fill="#fff"/><path d="M-4 82l8-4M-4 94l8-4M-4 106l8-4" stroke="#ff4f9a" stroke-width="3"/><path class="smoke" d="M0 64c-6-8 6-12 0-20"/><g class="flame"><path d="M0 68C-8 58-3 50 0 40c3 10 8 18 0 28z" fill="#ffb300"/><path d="M0 68c-4-5-2-9 0-14 2 5 4 9 0 14z" fill="#fff3a0"/></g><rect x="-14" y="36" width="28" height="86" fill="transparent"/></g>
+      <g class="candle" transform="translate(172 0)"><rect x="-4" y="76" width="8" height="46" rx="2" fill="#fff"/><path d="M-4 86l8-4M-4 98l8-4M-4 110l8-4" stroke="#ff4f9a" stroke-width="3"/><path class="smoke" d="M0 70c-6-8 6-12 0-20"/><g class="flame"><path d="M0 74C-8 64-3 56 0 46c3 10 8 18 0 28z" fill="#ffb300"/><path d="M0 74c-4-5-2-9 0-14 2 5 4 9 0 14z" fill="#fff3a0"/></g><rect x="-14" y="42" width="28" height="80" fill="transparent"/></g>
+    </svg>
+    <div class="msg" id="cmsg">Ketuk lilin untuk meniup</div>
+    <button class="btn" id="relight">Nyalakan Lagi</button>
+  </div>
+</section>
+
+<!-- HADIAH -->
+<section class="view" id="vGift">
+  <button class="btn ghost back-top" data-back>← Kembali</button>
+  <div class="inner gift">
+    <div class="gift-container">
+      <div class="pol gift-pol" id="polGift"></div>
+      <div class="paper gift-paper"><p id="gNote" class="font-text"></p></div>
+    </div>
+  </div>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
